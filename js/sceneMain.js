@@ -12,13 +12,31 @@ class SceneMain extends Phaser.Scene {
     //     frameWidth: 120, // width of each frame
     //     frameHeight: 200, // height of each frame, these have to be accurate...
     //   });
+    this.graphics = this.add.graphics();
+    this.graphics.lineStyle(8, 0xff0000); // thickness, color
+    // this.graphics.moveTo(0, 0); // x, y
+    // this.graphics.lineTo(100, 300); // line direction
+    // this.graphics.strokePath(); // draw line
+    // this.graphics.strokeRect(100, 200, 50, 50); // draw rectangle
+    this.graphics.fillStyle(0xff00ff, 0.5); // draw circle
+    this.graphics.fillCircle(100, 200, 60); // filled circle
   }
 
   create() {
     let X_AXIS_CENTER = game.config.width / 2,
       Y_AXIS_CENTER = game.config.height / 2;
     // define our objects
-    // this.face = this.add.image(0, 0, 'face'); // this.add.image(x, y, "key");
+    // this.face = this.add.image(X_AXIS_CENTER, Y_AXIS_CENTER, 'face'); // this.add.image(x, y, "key");
+    // this.face.setInteractive(); // tells phaser to listen to events on this object.
+    // // pointedown means click
+    // this.face.on('pointerdown', () => {
+    //   this.face.alpha = 0.5;
+    // });
+    // // function that runs on event, can be declared in class or callback
+    // this.face.on('pointerup', () => {
+    //   this.face.alpha = 1;
+    // });
+
     // this.face.setOrigin(0,0)
     // center
     // this.face.x = game.config.width / 2
