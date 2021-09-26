@@ -55,6 +55,9 @@ class SceneMain extends Phaser.Scene {
 
     this.char.play('walk'); // play animation('key')
 
+    this.doWalk();
+  }
+  doWalk() {
     // another way of moving sprite
     this.tweens.add({
       targets: this.char,
@@ -62,7 +65,21 @@ class SceneMain extends Phaser.Scene {
       x: game.config.width, // go in x axis
       y: 0, // go in y axis
       alpha: 0, // transparency
+      onComplete: this.onCompleteHandler.bind(this), // function that runs when the tween sequence end, put scope of scene to the function with .bind
+      onCompleteParams: [this], // pas it to scope of onCompleteHandler
     });
+  }
+
+  onCompleteHandler(tween, targets, custom) {
+    let Y_AXIS_CENTER = game.config.height / 2;
+
+    console.log('complete!');
+    let char = targets[0]; // have to access it as a local variable through targets for the next lines to work, can't use this.char
+    char.x = 0;
+    char.y = Y_AXIS_CENTER;
+    char.alpha = 1;
+
+    this.doWalk();
   }
   update() {
     // constant running loop, can remember it by comparing to a useEffect with no dependency array.
