@@ -31,7 +31,7 @@ class SceneMain extends Phaser.Scene {
     // this.face.displayHeight = 50 // set width to 100 pixels
     // this.face.scaleY = this.face.scaleX // proportional height
 
-    this.char = this.add.sprite(X_AXIS_CENTER, Y_AXIS_CENTER, 'boy'); // x, y, key
+    this.char = this.add.sprite(0, Y_AXIS_CENTER, 'boy'); // x, y, key
 
     let frameNames = this.anims.generateFrameNumbers('boy'); // get amount of frames for sprite (needs key)
 
@@ -54,9 +54,27 @@ class SceneMain extends Phaser.Scene {
     });
 
     this.char.play('walk'); // play animation('key')
+
+    // another way of moving sprite
+    this.tweens.add({
+      targets: this.char,
+      duration: 5000, // 1 second in ms
+      x: game.config.width, // go in x axis
+      y: 0, // go in y axis
+      alpha: 0, // transparency
+    });
   }
   update() {
-    // constant running loop
+    // constant running loop, can remember it by comparing to a useEffect with no dependency array.
+    // WAY 1 OF MOVING SPRITES
+    /* 
+    this.char.x += 2; // move char in xAxis +2 units in constant loop
+    
+    if (this.char.x > game.config.width) {
+      // if character went past game max width, bring him back to beginning.
+      this.char.x = 0;
+    }
+      */
   }
 
   // we can also add our own custom functions
