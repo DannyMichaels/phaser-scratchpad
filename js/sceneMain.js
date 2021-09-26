@@ -33,20 +33,24 @@ class SceneMain extends Phaser.Scene {
 
     this.char = this.add.sprite(X_AXIS_CENTER, Y_AXIS_CENTER, 'boy'); // x, y, key
 
+    let frameNames = this.anims.generateFrameNumbers('boy'); // get amount of frames for sprite (needs key)
+
     // creating an animation
     this.anims.create({
       key: 'walk',
-      frames: [
-        // key of sprite, frame number going from 0 to 5, x image has x many frames
-        { key: 'boy', frame: 0 },
-        { key: 'boy', frame: 1 },
-        { key: 'boy', frame: 2 },
-        { key: 'boy', frame: 3 },
-        { key: 'boy', frame: 4 },
-        { key: 'boy', frame: 5 },
-      ],
-      frameRate: 8,
-      repeat: -1,
+      frames: frameNames,
+      // frames: [
+      // key of sprite, frame number going from 0 to 5, x image has x many frames
+      //{ key: 'boy', frame: frameNumber (0,1,2, etc...) },
+      // { key: 'boy', frame: 0 },
+      // { key: 'boy', frame: 1 },
+      // { key: 'boy', frame: 2 },
+      // { key: 'boy', frame: 3 },
+      // { key: 'boy', frame: 4 },
+      // { key: 'boy', frame: 5 },
+      // ],
+      frameRate: 8, // speed of animation
+      repeat: -1, // repeat -1 is infinite, enter other positive number for set number of animation loops
     });
 
     this.char.play('walk'); // play animation('key')
