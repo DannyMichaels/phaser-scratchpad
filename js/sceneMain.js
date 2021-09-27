@@ -7,7 +7,7 @@ class SceneMain extends Phaser.Scene {
   }
   preload() {
     // load our images or sounds
-    // this.load.image('face', 'images/face.png'); // this.load.image('key', 'path')
+    this.load.image('face', 'images/face.png'); // this.load.image('key', 'path')
     //   this.load.spritesheet('boy', 'images/boy.png', {
     //     frameWidth: 120, // width of each frame
     //     frameHeight: 200, // height of each frame, these have to be accurate...
@@ -114,6 +114,9 @@ class SceneMain extends Phaser.Scene {
     //   appleContainer.add(apple);
     // }
     // testObj = appleContainer; // assign to global var so can use in console
+
+    var face = this.add.image(0, 0, 'face');
+    Align.center(face);
   }
   // doWalk() {
   //   // another way of moving sprite
