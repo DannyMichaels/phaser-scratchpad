@@ -90,18 +90,30 @@ class SceneMain extends Phaser.Scene {
     // this.catSound = this.sound.add('cat'); // (key)
     // this.catSound.play();
 
-    let appleGroup = this.add.group();
-
     // groups
-    for (let i = 0; i < 5; i++) {
-      let xx = Phaser.Math.Between(100, 400); // location
-      let yy = Phaser.Math.Between(100, 400); // location
-      let apple = this.add.image(xx, yy, 'apple');
-      apple.setScale(0.5); // img size
-      appleGroup.add(apple);
-    }
-    testObj = appleGroup; // assign to global var so can use in console
+    // let appleGroup = this.add.group();
+    // for (let i = 0; i < 5; i++) {
+    //   let xx = Phaser.Math.Between(100, 400); // location
+    //   let yy = Phaser.Math.Between(100, 400); // location
+    //   let apple = this.add.image(xx, yy, 'apple');
+    //   apple.setScale(0.5); // img size
+    //   appleGroup.add(apple);
+    // }
+    // testObj = appleGroup; // assign to global var so can use in console
     // to loop through and detect collisions, can use appleGroup.children.entries. thats the point of using groups
+
+    //  containers
+    // visually similar to groups, but the difference is we can move all objects in containers as one collection
+    // for example: appleContainer.x = 100 will move all of them together
+    // let appleContainer = this.add.container();
+    // for (let i = 0; i < 5; i++) {
+    //   let xx = Phaser.Math.Between(100, 400); // location
+    //   let yy = Phaser.Math.Between(100, 400); // location
+    //   let apple = this.add.image(xx, yy, 'apple');
+    //   apple.setScale(0.5); // img size
+    //   appleContainer.add(apple);
+    // }
+    // testObj = appleContainer; // assign to global var so can use in console
   }
   // doWalk() {
   //   // another way of moving sprite
