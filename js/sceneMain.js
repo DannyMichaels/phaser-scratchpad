@@ -12,14 +12,16 @@ class SceneMain extends Phaser.Scene {
     //     frameWidth: 120, // width of each frame
     //     frameHeight: 200, // height of each frame, these have to be accurate...
     //   });
-    this.graphics = this.add.graphics();
-    this.graphics.lineStyle(8, 0xff0000); // thickness, color
+    // this.graphics = this.add.graphics();
+    // this.graphics.lineStyle(8, 0xff0000); // thickness, color
     // this.graphics.moveTo(0, 0); // x, y
     // this.graphics.lineTo(100, 300); // line direction
     // this.graphics.strokePath(); // draw line
     // this.graphics.strokeRect(100, 200, 50, 50); // draw rectangle
-    this.graphics.fillStyle(0xff00ff, 0.5); // draw circle
-    this.graphics.fillCircle(100, 200, 60); // filled circle
+    // this.graphics.fillStyle(0xff00ff, 0.5); // draw circle
+    // this.graphics.fillCircle(100, 200, 60); // filled circle
+
+    this.load.audio('cat', ['audio/meow.mp3', 'audio/meow.ogg']);
   }
 
   create() {
@@ -83,6 +85,10 @@ class SceneMain extends Phaser.Scene {
     //   fontSize: '40px',
     // });
     // this.text1.setOrigin(0.5, 0.5);
+
+    // sounds
+    this.catSound = this.sound.add('cat'); // (key)
+    this.catSound.play();
   }
   // doWalk() {
   //   // another way of moving sprite
