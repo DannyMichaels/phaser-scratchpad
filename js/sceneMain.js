@@ -20,8 +20,8 @@ class SceneMain extends Phaser.Scene {
     // this.graphics.strokeRect(100, 200, 50, 50); // draw rectangle
     // this.graphics.fillStyle(0xff00ff, 0.5); // draw circle
     // this.graphics.fillCircle(100, 200, 60); // filled circle
-
-    this.load.audio('cat', ['audio/meow.mp3', 'audio/meow.ogg']);
+    // this.load.audio('cat', ['audio/meow.mp3', 'audio/meow.ogg']);
+    this.load.image('apple', 'images/apple.png');
   }
 
   create() {
@@ -87,8 +87,21 @@ class SceneMain extends Phaser.Scene {
     // this.text1.setOrigin(0.5, 0.5);
 
     // sounds
-    this.catSound = this.sound.add('cat'); // (key)
-    this.catSound.play();
+    // this.catSound = this.sound.add('cat'); // (key)
+    // this.catSound.play();
+
+    let appleGroup = this.add.group();
+
+    // groups
+    for (let i = 0; i < 5; i++) {
+      let xx = Phaser.Math.Between(100, 400); // location
+      let yy = Phaser.Math.Between(100, 400); // location
+      let apple = this.add.image(xx, yy, 'apple');
+      apple.setScale(0.5); // img size
+      appleGroup.add(apple);
+    }
+    testObj = appleGroup; // assign to global var so can use in console
+    // to loop through and detect collisions, can use appleGroup.children.entries. thats the point of using groups
   }
   // doWalk() {
   //   // another way of moving sprite

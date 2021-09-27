@@ -1,4 +1,5 @@
 var game; // game is global object
+var testObj;
 
 window.onload = function () {
   var config = {
